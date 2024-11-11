@@ -19,6 +19,7 @@ appsettings.*.json
 
 # User-specific files
 .vscode/
+.vs/
 .idea/
 *.swp
 *.sln.ide
