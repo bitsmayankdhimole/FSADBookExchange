@@ -1,0 +1,73 @@
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+bin/
+obj/
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Configuration files
+appsettings.json
+appsettings.*.json
+
+# User-specific files
+.vscode/
+.idea/
+*.swp
+*.sln.ide
+
+# Rider
+.idea/
+*.sln.iml
+
+# Mac
+*.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Logs
+*.log
+
+# NPM
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Visual Studio Code
+.vscode/
+
+# Local History for JetBrains IDEs
+.localhistory/
+
+# Coverage
+coverage/
+*.coverage
+*.coveragexml
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# DotNet
+.dotnet/
+
+# Angular
+node_modules/
+dist/
+tmp/
+out-tsc/
+*.log
+.angular/
+coverage/
+src/environments/environment*.ts
