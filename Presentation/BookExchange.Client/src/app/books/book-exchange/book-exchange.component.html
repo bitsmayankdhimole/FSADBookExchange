@@ -1,0 +1,13 @@
+<div class="book-exchange">
+  <p-card [header]="book.title" [subheader]="book.author" [style]="{ width: '360px' }">
+    <ng-template pTemplate="header">
+      <img [src]="book.imageURL" alt="{{ book.title }}">
+    </ng-template>
+    <p>{{ book.description }}</p>
+    <p><strong>Genre:</strong> {{ book.genre }}</p>
+    <p><strong>Condition:</strong> {{ book.condition }}</p>
+    <p><strong>Availability:</strong> {{ book.availabilityStatus }}</p>
+    <p><strong>Language:</strong> {{ book.language }}</p>
+    <!-- Add more details as needed -->
+  </p-card>
+</div>

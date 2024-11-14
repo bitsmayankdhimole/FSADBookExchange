@@ -1,0 +1,90 @@
+<p-dialog header="Add Book" [(visible)]="showModal" [modal]="true" [closable]="false" [style]="{ width: '50vw' }">
+  <form [formGroup]="addBookForm" (ngSubmit)="onSubmit()">
+    <!-- Title -->
+    <div class="grid">
+      <div class="col-12">
+        <div class="field">
+          <label for="title">Title</label>
+          <input id="title" type="text" pInputText formControlName="title" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Author and Genre -->
+    <div class="grid">
+      <div class="col-6">
+        <div class="field">
+          <label for="author">Author</label>
+          <input id="author" type="text" pInputText formControlName="author" />
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="field">
+          <label for="genre">Genre</label>
+          <p-dropdown id="genre" [options]="genres" formControlName="genre"></p-dropdown>
+        </div>
+      </div>
+    </div>
+
+    <!-- Condition and Availability -->
+    <div class="grid">
+      <div class="col-6">
+        <div class="field">
+          <label for="condition">Condition</label>
+          <p-dropdown id="condition" [options]="conditions" formControlName="condition"></p-dropdown>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="field">
+          <label for="availabilityStatus">Availability Status</label>
+          <p-dropdown id="availabilityStatus" [options]="availabilityStatuses" formControlName="availabilityStatus"></p-dropdown>
+        </div>
+      </div>
+    </div>
+
+    <!-- Language and Image URL -->
+    <div class="grid">
+      <div class="col-4">
+        <div class="field">
+          <label for="language">Language</label>
+          <p-dropdown id="language" [options]="languages" formControlName="language"></p-dropdown>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="field">
+          <label for="imageURL">Image URL</label>
+          <input id="imageURL" type="text" pInputText formControlName="imageURL" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="grid">
+      <div class="col-12">
+        <div class="field">
+          <label for="description">Description</label>
+          <textarea id="description" pInputTextarea formControlName="description"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Buttons -->
+    <p-footer>
+      <button
+        pButton
+        type="button"
+        label="Cancel"
+        icon="pi pi-times"
+        (click)="onCancel()"
+        class="mr-2"
+      ></button>
+      <button
+        pButton
+        type="submit"
+        label="Add"
+        icon="pi pi-check"
+        [disabled]="addBookForm.invalid"
+      ></button>
+    </p-footer>
+  </form>
+</p-dialog>

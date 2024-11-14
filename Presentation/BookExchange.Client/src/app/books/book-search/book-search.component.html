@@ -1,0 +1,89 @@
+<div class="book-search">
+    <!-- Search Bar -->
+    <div class="search-bar grid formgrid fluid">
+      <div class="col-3">
+        <div class="field">
+          <label for="searchTerm">Search</label>
+          <input id="searchTerm" type="text" pInputText [(ngModel)]="searchTerm" />
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="field">
+          <label>&nbsp;</label>
+          <button
+            pButton
+            type="button"
+            label="Search"
+            icon="pi pi-search"
+            (click)="searchBooks()"
+            class="primary-button"
+          ></button>
+        </div>
+      </div>
+      <div class="col-7"></div>
+    </div>
+  
+    <!-- Filter Bar -->
+    <div class="filter-bar grid formgrid fluid">
+      <div class="col-2">
+        <div class="field">
+          <label for="genre">Genre</label>
+          <p-dropdown id="genre" [options]="genres" [(ngModel)]="genre"></p-dropdown>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="field">
+          <label for="condition">Condition</label>
+          <p-dropdown id="condition" [options]="conditions" [(ngModel)]="condition"></p-dropdown>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="field">
+          <label for="availabilityStatus">Availability</label>
+          <p-dropdown id="availabilityStatus" [options]="availabilityStatuses" [(ngModel)]="availabilityStatus"></p-dropdown>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="field">
+          <label for="language">Language</label>
+          <p-dropdown id="language" [options]="languages" [(ngModel)]="language"></p-dropdown>
+        </div>
+      </div>
+      <div class="col-4"></div>
+    </div>
+  
+    <!-- Book List -->
+    <div class="book-list grid">
+      <div *ngFor="let book of books" class="col-12 md:col-4">
+        <p-card [header]="book.title" [subheader]="book.author" [style]="{ width: '360px' }">
+          <ng-template pTemplate="header">
+            <img [src]="book.imageURL" alt="{{ book.title }}" />
+          </ng-template>
+          <p>{{ book.description }}</p>
+          <ng-template pTemplate="footer">
+            <div class="flex gap-3 mt-1">
+              <button
+                pButton
+                type="button"
+                label="Lend/Exchange"
+                (click)="goToExchange(book)"
+                class="primary-button"
+              ></button>
+            </div>
+          </ng-template>
+        </p-card>
+      </div>
+    </div>
+  
+    <!-- Load More Button -->
+    <div class="load-more">
+      <button
+        pButton
+        type="button"
+        label="Load More"
+        (click)="loadMoreBooks()"
+        *ngIf="hasMoreBooks"
+        class="primary-button"
+      ></button>
+    </div>
+  </div>

@@ -2,8 +2,7 @@
 {
     public class CreateSessionRequest
     {
-        public int UserId { get; set; }
-        public string SessionToken { get; set; } = string.Empty;
-        public DateTime ExpirationDate { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }

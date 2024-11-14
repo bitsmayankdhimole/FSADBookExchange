@@ -1,5 +1,5 @@
-﻿using Entities = Application.Domain.Entities;
-using Application.Domain.Repositories;
+﻿using SessionEntity = Application.Domain.Entities.Session;
+using Application.Domain.Entities.Session;
 
 namespace Application.UseCases.Session
 {
@@ -14,7 +14,7 @@ namespace Application.UseCases.Session
 
         public async Task CreateSessionAsync(int userId, string sessionToken, DateTime expirationDate)
         {
-            var session = new Entities.Session
+            var session = new SessionEntity.Session
             {
                 UserId = userId,
                 SessionToken = sessionToken,
@@ -25,7 +25,7 @@ namespace Application.UseCases.Session
             await _sessionRepository.CreateSessionAsync(session);
         }
 
-        public async Task<Entities.Session?> GetSessionAsync(string sessionToken)
+        public async Task<SessionEntity.Session?> GetSessionAsync(string sessionToken)
         {
             return await _sessionRepository.GetSessionAsync(sessionToken);
         }

@@ -1,0 +1,30 @@
+<div class="register-container">
+  <h2>Register</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input id="firstName" formControlName="firstName" type="text" pInputText />
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input id="lastName" formControlName="lastName" type="text" pInputText />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" pInputText />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password" pInputText />
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input id="confirmPassword" formControlName="confirmPassword" type="password" pInputText />
+    </div>
+    <div class="form-group">
+      <label for="interests">Interests</label>
+      <input id="interests" formControlName="interests" type="text" pInputText />
+    </div>
+    <button pButton type="submit" label="Register" [disabled]="registerForm.invalid"></button>
+  </form>
+</div>

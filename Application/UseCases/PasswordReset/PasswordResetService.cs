@@ -1,5 +1,5 @@
-﻿using Entities = Application.Domain.Entities;
-using Application.Domain.Repositories;
+﻿using UserEntity = Application.Domain.Entities.User;
+using Application.Domain.Entities.User;
 
 namespace Application.UseCases.PasswordReset
 {
@@ -16,7 +16,7 @@ namespace Application.UseCases.PasswordReset
 
         public async Task CreatePasswordResetTokenAsync(int userId, string resetToken, DateTime expirationDate)
         {
-            var passwordReset = new Entities.PasswordReset
+            var passwordReset = new UserEntity.PasswordReset
             {
                 UserId = userId,
                 ResetToken = resetToken,

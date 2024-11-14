@@ -1,6 +1,5 @@
-﻿using Application.Domain.Entities;
-using Application.Domain.Repositories;
-using Dapper;
+﻿using Dapper;
+using Application.Domain.Entities.Session;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 

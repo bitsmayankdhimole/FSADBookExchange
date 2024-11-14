@@ -1,4 +1,12 @@
-﻿CREATE TABLE [dbo].[Users] (
+﻿Create Database BookExchangeUser
+
+GO
+
+Use BookExchangeUser
+
+GO
+
+CREATE TABLE [dbo].[Users] (
     [UserId] INT IDENTITY(1,1) PRIMARY KEY,
     [Email] NVARCHAR(256) NOT NULL UNIQUE,
     [PasswordHash] NVARCHAR(256) NOT NULL,
@@ -79,6 +87,18 @@ BEGIN
     VALUES (@UserId, @ResetToken, @ExpirationDate, 0);
 END
 GO
+
+CREATE PROCEDURE [dbo].[GetUserByResetToken]
+    @ResetToken NVARCHAR(256)
+AS
+BEGIN
+    SELECT u.*
+    FROM Users u
+    INNER JOIN PasswordResets pr ON u.UserId = pr.UserId
+    WHERE pr.ResetToken = @ResetToken AND pr.IsUsed = 0 AND pr.ExpirationDate > GETDATE();
+END
+GO
+
 
 -- Reset Password
 CREATE PROCEDURE [dbo].[ResetPassword]

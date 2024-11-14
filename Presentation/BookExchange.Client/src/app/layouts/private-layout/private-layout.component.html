@@ -1,0 +1,33 @@
+<div class="private-layout">
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <a routerLink="/dashboard">Book Exchange</a>
+      </div>
+      <nav class="menu-items">
+        <a routerLink="/dashboard">Dashboard</a>
+        <a routerLink="/books">My Books</a>
+        <a href="#" (click)="showAddBookModal($event)">Add Book</a>
+      </nav>
+      <div class="user-profile">
+        <div class="dropdown">
+          <button class="dropbtn">Profile <i class="pi pi-user"></i></button>
+          <div class="dropdown-content">
+            <a routerLink="/profile">Profile</a>
+            <a href="#" (click)="logout()">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <!-- Add sidebar content here -->
+  </aside>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  <footer>
+    <p>&copy; 2024 Book Exchange</p>
+  </footer>
+  <app-add-book-modal [(showModal)]="addBookModalVisible"></app-add-book-modal>
+</div>

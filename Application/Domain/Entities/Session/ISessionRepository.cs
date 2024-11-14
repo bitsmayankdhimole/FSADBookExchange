@@ -1,6 +1,4 @@
-﻿using Application.Domain.Entities;
-
-namespace Application.Domain.Repositories
+﻿namespace Application.Domain.Entities.Session
 {
     public interface ISessionRepository
     {

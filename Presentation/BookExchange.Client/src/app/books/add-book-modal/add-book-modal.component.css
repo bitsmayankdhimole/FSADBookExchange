@@ -1,0 +1,51 @@
+.p-field {
+  margin-bottom: 1rem;
+}
+
+.p-dialog {
+  background-color: var(--neutral-light) !important;
+  color: var(--neutral-dark) !important;
+}
+
+.p-dialog .p-dialog-header {
+  background-color: var(--primary-color) !important;
+  color: var(--neutral-light) !important;
+}
+
+.p-dialog .p-dialog-footer {
+  background-color: var(--neutral-medium) !important;
+  color: var(--neutral-dark) !important;
+}
+
+.p-button {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: var(--neutral-light) !important;
+}
+
+.p-button:hover {
+  background-color: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+  color: var(--neutral-dark) !important;
+}
+
+.form-grid {
+  row-gap: 0.5rem; /* Adjust vertical spacing between rows */
+  column-gap: 1rem; /* Adjust horizontal spacing between fields */
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.25rem; /* Space between label and input field */
+  font-weight: bold; /* Make labels more prominent */
+}
+
+.field input,
+.field textarea,
+.field p-dropdown {
+  width: 100%; /* Ensure fields take full width */
+}
+
+button {
+  margin-top: 1rem; /* Space above footer buttons */
+}

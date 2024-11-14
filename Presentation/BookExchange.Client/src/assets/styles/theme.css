@@ -1,0 +1,126 @@
+/* Order */
+@layer reset, primeng;
+
+/* Reset CSS */
+@layer reset {
+  button,
+  input {
+    font: inherit;
+    color: inherit;
+  }
+}
+
+/* Core Color Palette */
+:root {
+  --primary-color: #a67564; /* Muted Terracotta */
+  --accent-color: #d9b18e; /* Muted Beige/Pale Orange */
+  --neutral-light: #f2f1ef; /* Very Light Warm Gray */
+  --neutral-medium: #d9d2cc; /* Light Warm Gray */
+  --neutral-dark: #723e31; /* Deep Brown-Red */
+  --success-color: #8bc34a; /* Softer Green */
+}
+
+/* Assign Colors to UI Elements */
+body {
+  background-color: var(--neutral-light);
+}
+
+.secondary-background {
+  background-color: var(--neutral-medium);
+}
+
+.primary-button {
+  background-color: var(--primary-color);
+  color: var(--neutral-light);
+}
+
+.secondary-button {
+  background-color: var(--accent-color);
+  color: var(--neutral-dark);
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+  filter: brightness(90%);
+}
+
+.border,
+.divider {
+  border-color: var(--neutral-medium);
+}
+
+a,
+.cta {
+  color: var(--accent-color);
+}
+
+.error {
+  color: var(--neutral-dark);
+}
+
+.success {
+  color: var(--success-color);
+}
+
+/* Typography & Text */
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--neutral-dark);
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+body,
+p {
+  font-size: 16px;
+  font-weight: normal;
+  color: var(--neutral-dark);
+}
+
+.caption {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--accent-color);
+}
+
+a {
+  font-size: 16px;
+  font-weight: normal;
+  color: var(--accent-color);
+}
+
+/* Component-Specific Colors */
+.card {
+  background-color: var(--neutral-light);
+  color: var(--neutral-dark);
+}
+
+.modal {
+  background-color: #ffffff;
+  color: var(--neutral-dark);
+}
+
+.navbar {
+  background-color: var(--neutral-dark);
+  color: var(--neutral-light);
+}
+
+.navbar a.active {
+  color: var(--accent-color);
+}
+
+.footer {
+  background-color: var(--neutral-dark);
+  color: var(--neutral-light);
+}
+
+.highlight,
+.tag {
+  background-color: var(--accent-color);
+  color: var(--neutral-dark);
+}

@@ -1,0 +1,58 @@
+<div class="book-listing">
+  <h2>Book Listings</h2>
+  <div *ngIf="books.length === 0">No books available.</div>
+  <div class="book-list grid">
+    <div *ngFor="let book of books" class="col-12 md:col-4">
+      <p-card [header]="book.title" [subheader]="book.author" [style]="{ width: '360px' }">
+        <ng-template pTemplate="header">
+          <img [src]="book.imageURL" alt="{{ book.title }}" class="book-image">
+        </ng-template>
+        <div *ngIf="!book.editing">
+          <p><strong>Author:</strong> {{ book.author }}</p>
+          <p><strong>Genre:</strong> {{ book.genre }}</p>
+          <p><strong>Condition:</strong> {{ book.condition }}</p>
+          <p><strong>Availability:</strong> {{ book.availabilityStatus }}</p>
+          <p><strong>Language:</strong> {{ book.language }}</p>
+          <p>{{ book.description }}</p>
+        </div>
+        <div *ngIf="book.editing">
+          <div class="p-field">
+            <label for="author">Author</label>
+            <input id="author" type="text" pInputText [(ngModel)]="book.author">
+          </div>
+          <div class="p-field">
+            <label for="genre">Genre</label>
+            <p-dropdown id="genre" [options]="genres" [(ngModel)]="book.genre"></p-dropdown>
+          </div>
+          <div class="p-field">
+            <label for="condition">Condition</label>
+            <p-dropdown id="condition" [options]="conditions" [(ngModel)]="book.condition"></p-dropdown>
+          </div>
+          <div class="p-field">
+            <label for="availabilityStatus">Availability</label>
+            <p-dropdown id="availabilityStatus" [options]="availabilityStatuses" [(ngModel)]="book.availabilityStatus"></p-dropdown>
+          </div>
+          <div class="p-field">
+            <label for="language">Language</label>
+            <p-dropdown id="language" [options]="languages" [(ngModel)]="book.language"></p-dropdown>
+          </div>
+          <div class="p-field">
+            <label for="imageURL">Image URL</label>
+            <input id="imageURL" type="text" pInputText [(ngModel)]="book.imageURL">
+          </div>
+          <div class="p-field">
+            <label for="description">Description</label>
+            <textarea id="description" pInputTextarea [(ngModel)]="book.description"></textarea>
+          </div>
+        </div>
+        <ng-template pTemplate="footer">
+          <div class="flex gap-3 mt-1">
+            <button pButton type="button" label="Edit" *ngIf="!book.editing" (click)="editBook(book)" class="primary-button"></button>
+            <button pButton type="button" label="Cancel" *ngIf="book.editing" (click)="cancelEdit(book)" class="secondary-button"></button>
+            <button pButton type="button" label="Update" *ngIf="book.editing" (click)="updateBook(book)" class="primary-button"></button>
+          </div>
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+</div>
