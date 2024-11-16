@@ -63,12 +63,14 @@
           <ng-template pTemplate="footer">
             <div class="flex gap-3 mt-1">
               <button
+                *ngIf="book.availabilityStatus !== 'Unavailable'"
                 pButton
                 type="button"
                 label="Lend/Exchange"
                 (click)="goToExchange(book)"
                 class="primary-button"
               ></button>
+              <span *ngIf="book.availabilityStatus === 'Unavailable'" class="unavailable-label">Unavailable</span>
             </div>
           </ng-template>
         </p-card>

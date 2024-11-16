@@ -40,7 +40,7 @@ namespace BookExchange.Server.Controllers
                 HttpOnly = true,
                 Expires = expirationDate,
                 Secure = true, // Ensure this is true in production
-                SameSite = SameSiteMode.Strict
+                SameSite = SameSiteMode.None
             };
 
             Response.Cookies.Append("SessionToken", sessionToken, cookieOptions);
@@ -48,7 +48,6 @@ namespace BookExchange.Server.Controllers
             return Ok(new { user.UserId, ExpirationDate = expirationDate });
         }
 
-        [Authorize]
         [HttpGet("check-session")]
         public async Task<IActionResult> CheckSession()
         {
@@ -76,6 +75,18 @@ namespace BookExchange.Server.Controllers
 
             await _sessionService.ExpireSessionAsync(sessionToken);
             return Ok();
+        }
+
+        [HttpGet("unauthorized")]
+        public IActionResult UnauthorizedAccess()
+        {
+            return Unauthorized(new { Message = "Unauthorized access. Please log in." });
+        }
+
+        [HttpGet("forbidden")]
+        public IActionResult ForbiddenAccess()
+        {
+            return Forbid();
         }
 
         private bool VerifyPassword(string password, string storedHash, string storedSalt)

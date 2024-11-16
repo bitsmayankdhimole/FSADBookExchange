@@ -1,6 +1,8 @@
 ﻿using Application.UseCases.User;
+using BookExchange.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.RegularExpressions;
+
 
 namespace BookExchange.Server.Controllers
 {
@@ -119,31 +121,4 @@ namespace BookExchange.Server.Controllers
         }
     }
 
-    public class CreateUserRequest
-    {
-        public string UserName { get; set; } = string.Empty;
-        public string Email { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
-        public string? FirstName { get; set; }
-        public string? LastName { get; set; }
-    }
-
-    public class UpdateUserRequest
-    {
-        public string UserName { get; set; } = string.Empty;
-        public string Email { get; set; } = string.Empty;
-        public string? FirstName { get; set; }
-        public string? LastName { get; set; }
-    }
-
-    public class PasswordResetRequest
-    {
-        public string Email { get; set; } = string.Empty;
-    }
-
-    public class ResetPasswordRequest
-    {
-        public string ResetToken { get; set; } = string.Empty;
-        public string NewPassword { get; set; } = string.Empty;
-    }
 }
