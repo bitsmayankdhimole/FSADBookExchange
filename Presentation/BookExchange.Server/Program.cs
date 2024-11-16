@@ -7,6 +7,9 @@ using Application.Domain.Entities.Book;
 using Application.UseCases.Book;
 using Application.Domain.Entities.Notification;
 using Application.UseCases.Notification;
+using Microsoft.AspNetCore.Authorization;
+using IAuthorizationService = Application.UseCases.Session.IAuthorizationService;
+using Infrastructure.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +27,7 @@ builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
+builder.Services.AddScoped<IAuthorizationService, AuthorizationService>();
 
 
 // Configure CORS
@@ -49,6 +53,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors("AllowSpecificOrigin");
+
+app.UseMiddleware<AuthorizationMiddleware>();
 
 app.UseAuthorization();
 

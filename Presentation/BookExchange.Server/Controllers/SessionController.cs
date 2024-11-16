@@ -1,6 +1,7 @@
 ﻿using Application.UseCases.Session;
 using Application.UseCases.User;
 using BookExchange.Server.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Cryptography;
 using System.Text;
@@ -47,7 +48,7 @@ namespace BookExchange.Server.Controllers
             return Ok(new { user.UserId, ExpirationDate = expirationDate });
         }
 
-
+        [Authorize]
         [HttpGet("check-session")]
         public async Task<IActionResult> CheckSession()
         {
@@ -65,11 +66,15 @@ namespace BookExchange.Server.Controllers
             return Ok(new { UserId = session.UserId });
         }
 
-
         [HttpPost("logout")]
-        public async Task<IActionResult> ExpireSession([FromBody] ExpireSessionRequest request)
+        public async Task<IActionResult> ExpireSession()
         {
-            await _sessionService.ExpireSessionAsync(request.SessionToken);
+            if (!Request.Cookies.TryGetValue("SessionToken", out var sessionToken))
+            {
+                return Ok();
+            }
+
+            await _sessionService.ExpireSessionAsync(sessionToken);
             return Ok();
         }
 

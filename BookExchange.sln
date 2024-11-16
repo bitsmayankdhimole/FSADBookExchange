@@ -11,13 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "BookExchange.Client", "Presentation\BookExchange.Client\BookExchange.Client.esproj", "{4586335C-A679-4ECB-81BF-B6BCE14E0C4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookExchange.Server", "Presentation\BookExchange.Server\BookExchange.Server.csproj", "{62EBCFC1-A0A9-4C5D-B9FD-CCCB8E62AA3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookExchange.Server", "Presentation\BookExchange.Server\BookExchange.Server.csproj", "{62EBCFC1-A0A9-4C5D-B9FD-CCCB8E62AA3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Application\Domain\Domain.csproj", "{B904233D-E8ED-40E9-A819-D1A97FFDC615}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Application\Domain\Domain.csproj", "{B904233D-E8ED-40E9-A819-D1A97FFDC615}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCases", "Application\UseCases\UseCases.csproj", "{831A07E6-F722-4EA5-932E-79C1007F182D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseCases", "Application\UseCases\UseCases.csproj", "{831A07E6-F722-4EA5-932E-79C1007F182D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "Infrastructure\DataAccess\DataAccess.csproj", "{8E87AEBD-EFAE-489A-A810-25CEFD2CB9DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "Infrastructure\DataAccess\DataAccess.csproj", "{8E87AEBD-EFAE-489A-A810-25CEFD2CB9DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization", "Infrastructure\Authorization\Authorization.csproj", "{E0C56CFB-FEE8-47E6-973A-29092E7002CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{8E87AEBD-EFAE-489A-A810-25CEFD2CB9DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E87AEBD-EFAE-489A-A810-25CEFD2CB9DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E87AEBD-EFAE-489A-A810-25CEFD2CB9DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0C56CFB-FEE8-47E6-973A-29092E7002CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0C56CFB-FEE8-47E6-973A-29092E7002CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0C56CFB-FEE8-47E6-973A-29092E7002CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0C56CFB-FEE8-47E6-973A-29092E7002CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{B904233D-E8ED-40E9-A819-D1A97FFDC615} = {3B6A28FC-4369-4005-BB76-C1D2337C1F7B}
 		{831A07E6-F722-4EA5-932E-79C1007F182D} = {3B6A28FC-4369-4005-BB76-C1D2337C1F7B}
 		{8E87AEBD-EFAE-489A-A810-25CEFD2CB9DA} = {D4633AC8-36BA-4389-B96A-76AFAA864699}
+		{E0C56CFB-FEE8-47E6-973A-29092E7002CD} = {D4633AC8-36BA-4389-B96A-76AFAA864699}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F5963E25-01DB-4B86-9034-F8A56B8D99EC}

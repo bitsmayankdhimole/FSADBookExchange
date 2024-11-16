@@ -1,9 +1,11 @@
 ﻿using Application.Domain.Entities.Book;
 using Application.UseCases.Book;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookExchange.Server.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class BookController : Controller

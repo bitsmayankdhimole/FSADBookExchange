@@ -15,22 +15,6 @@ namespace BookExchange.Server.Controllers
             _userService = userService;
         }
 
-        [HttpGet("{email}")]
-        public async Task<IActionResult> GetUser(string email)
-        {
-            if (!IsValidEmail(email))
-            {
-                return BadRequest("Invalid email format.");
-            }
-
-            var user = await _userService.GetUserByEmailAsync(email);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(user);
-        }
 
         [HttpPost]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)
@@ -58,16 +42,10 @@ namespace BookExchange.Server.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateUser(int id, [FromBody] UpdateUserRequest request)
         {
-            // Implement logic to update user by id
+            // TODO: Implement update user by id
             return Ok();
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult DeleteUser(int id)
-        {
-            // Implement logic to delete user by id
-            return Ok();
-        }
 
         [HttpPost("password-reset-token")]
         public async Task<IActionResult> CreatePasswordResetToken([FromBody] PasswordResetRequest request)
